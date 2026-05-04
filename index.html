@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <main id="lock" class="panel">
-    <h1>Variant Archive / Redacted Inquiry</h1>
+  <main id="lock" class="lock-panel">
+    <h1>Redacted Inquiry</h1>
     <p class="hint">請輸入三位通行碼。</p>
 
     <div class="code-row">
@@ -17,14 +17,14 @@
       <select id="n3" aria-label="第三格密碼"></select>
     </div>
 
-    <button id="unlockBtn">確認</button>
+    <button id="unlockBtn" class="confirm-btn">確認</button>
     <p id="error" role="status"></p>
   </main>
 
-  <main id="story" class="panel hidden">
-    <div id="pageLabel"></div>
+  <main id="story" class="story-panel hidden">
     <div id="content"></div>
-    <button id="nextBtn">繼續</button>
+    <button id="nextBtn" class="next-btn" aria-label="繼續">▼</button>
+    <button id="restartBtn" class="restart-btn hidden">回到第一頁</button>
   </main>
 
   <script src="/script.js"></script>

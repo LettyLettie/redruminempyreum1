@@ -10,27 +10,27 @@ const pages = [
   {
     type: "chat",
     lines: [
-      ["未知A", "你聽說過前陣子伊修加德發生的事嗎？"],
-      ["未知B", "你已經去過了嗎？"],
-      ["未知A", "我自己還沒去過，不過公會也開始有接洽一些那裡的狩獵委託吧？聽說報酬不錯，我一個朋友就去過幾次。"],
-      ["未知B", "他感覺怎麼樣？"],
-      ["未知A", "報酬是真的不錯，但冷也是真的冷。"],
-      ["未知B", "哦，那你剛才是要說什麼事情？"],
-      ["未知A", "聽說有人死了。"],
-      ["未知B", "……"],
-      ["未知B", "這倒也不是多稀奇的事吧？如果不熟悉那裡的魔物──"],
-      ["未知A", "不是參加狩獵隊的人，發生在住宅區，聽說是謀殺。"],
-      ["未知B", "謀殺？"],
-      ["未知A", "有人在一個什麼貴族的大宅裡面死了。"],
-      ["未知A", "是傳聞有幾個冒險者一大早經過那一帶，看見一具屍體被裹著白布抬出來了，附近有幾個他們警備隊……他們那邊是叫什麼？騎士團的人。"],
-      ["未知B", "那他們應該會調查吧？也不是我們可以插手的事。"],
-      ["未知A", "這才是最奇怪的部分。"],
-      ["未知B", "嗯？"],
-      ["未知A", "完全沒有任何調查行動的樣子，這件事好像沒有發生過，都已經過去幾個月了，我有在留意一些消息，但是什麼都沒有，一片死寂。"],
-      ["未知B", "那這只是奇怪的傳聞吧……"],
-      ["未知A", "可能，不過似乎牽扯了一些奇怪的事情，那裡好像是規劃要重建的街道，之前那附近就只有那一棟大宅而已的樣子，原本要把它併入新的街區，因為這件事那附近的工程好像暫時停止了。"],
-      ["未知B", "啊，我之前好像聽過有一些格里達尼亞的工匠在講這件事，他們原本要去那裡支援，結果又聽說暫時沒工作，不知道到底是怎樣。"],
-      ["未知A", "對吧，超級奇怪。"]
+      ["left", "你聽說過前陣子伊修加德發生的事嗎？"],
+      ["right", "你已經去過了嗎？"],
+      ["left", "我自己還沒去過，不過公會也開始有接洽一些那裡的狩獵委託吧？聽說報酬不錯，我一個朋友就去過幾次。"],
+      ["right", "他感覺怎麼樣？"],
+      ["left", "報酬是真的不錯，但冷也是真的冷。"],
+      ["right", "哦，那你剛才是要說什麼事情？"],
+      ["left", "聽說有人死了。"],
+      ["right", "……"],
+      ["right", "這倒也不是多稀奇的事吧？如果不熟悉那裡的魔物──"],
+      ["left", "不是參加狩獵隊的人，發生在住宅區，聽說是謀殺。"],
+      ["right", "謀殺？"],
+      ["left", "有人在一個什麼貴族的大宅裡面死了。"],
+      ["left", "是傳聞有幾個冒險者一大早經過那一帶，看見一具屍體被裹著白布抬出來了，附近有幾個他們警備隊……他們那邊是叫什麼？騎士團的人。"],
+      ["right", "那他們應該會調查吧？也不是我們可以插手的事。"],
+      ["left", "這才是最奇怪的部分。"],
+      ["right", "嗯？"],
+      ["left", "完全沒有任何調查行動的樣子，這件事好像沒有發生過，都已經過去幾個月了，我有在留意一些消息，但是什麼都沒有，一片死寂。"],
+      ["right", "那這只是奇怪的傳聞吧……"],
+      ["left", "可能，不過似乎牽扯了一些奇怪的事情，那裡好像是規劃要重建的街道，之前那附近就只有那一棟大宅而已的樣子，原本要把它併入新的街區，因為這件事那附近的工程好像暫時停止了。"],
+      ["right", "啊，我之前好像聽過有一些格里達尼亞的工匠在講這件事，他們原本要去那裡支援，結果又聽說暫時沒工作，不知道到底是怎樣。"],
+      ["left", "對吧，超級奇怪。"]
     ]
   },
   {
@@ -56,13 +56,13 @@ const pages = [
   {
     type: "chat",
     lines: [
-      ["女孩A", "你知道蒂娜在伊修加德買到凶宅嗎？"],
-      ["女孩B", "什麼鬼？超可怕，但她買的不是新屋嗎？"],
-      ["女孩A", "也不算凶宅啦，只是聽說那裡原本是一個貴族的房子，後來發生了不好的事情，就被整個拆除蓋了新房子。"],
-      ["女孩B", "原來她後來都還是跑去公寓住就是因為這件事啊。"],
-      ["女孩A", "聽說有時候會看到一些奇怪的景象，牆壁會變得很舊，突然出現不在那裡的家具之類的，超可怕。"],
-      ["女孩B", "那她有看到鬼嗎？"],
-      ["女孩A", "這我就沒問她了啦！"]
+      ["left", "你知道蒂娜在伊修加德買到凶宅嗎？"],
+      ["right", "什麼鬼？超可怕，但她買的不是新屋嗎？"],
+      ["left", "也不算凶宅啦，只是聽說那裡原本是一個貴族的房子，後來發生了不好的事情，就被整個拆除蓋了新房子。"],
+      ["right", "原來她後來都還是跑去公寓住就是因為這件事啊。"],
+      ["left", "聽說有時候會看到一些奇怪的景象，牆壁會變得很舊，突然出現不在那裡的家具之類的，超可怕。"],
+      ["right", "那她有看到鬼嗎？"],
+      ["left", "這我就沒問她了啦！"]
     ]
   },
   {
@@ -77,10 +77,11 @@ const pages = [
 
 const lock = document.getElementById("lock");
 const story = document.getElementById("story");
-const error = document.getElementById("error");
 const content = document.getElementById("content");
-const pageLabel = document.getElementById("pageLabel");
+const error = document.getElementById("error");
+const unlockBtn = document.getElementById("unlockBtn");
 const nextBtn = document.getElementById("nextBtn");
+const restartBtn = document.getElementById("restartBtn");
 const n1 = document.getElementById("n1");
 const n2 = document.getElementById("n2");
 const n3 = document.getElementById("n3");
@@ -94,8 +95,45 @@ for (const sel of document.querySelectorAll("select")) {
   }
 }
 
-document.getElementById("unlockBtn").onclick = async () => {
-  error.textContent = "";
+let failCount = 0;
+let locked = false;
+let page = 0;
+let line = 0;
+let typing = false;
+let audioContext = null;
+
+function shakeLock() {
+  lock.classList.remove("shake");
+  void lock.offsetWidth;
+  lock.classList.add("shake");
+}
+
+function initAudio() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+
+function playTypeSound() {
+  if (!audioContext) return;
+
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  oscillator.type = "sine";
+  oscillator.frequency.value = 520 + Math.random() * 80;
+  gain.gain.value = 0.018;
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscillator.start();
+  oscillator.stop(audioContext.currentTime + 0.025);
+}
+
+unlockBtn.onclick = async () => {
+  if (locked) return;
+  initAudio();
 
   const res = await fetch("/verify", {
     method: "POST",
@@ -110,33 +148,47 @@ document.getElementById("unlockBtn").onclick = async () => {
   const data = await res.json();
 
   if (!data.ok) {
-    error.textContent = "通行碼錯誤。";
+    failCount++;
+    shakeLock();
+
+    if (failCount >= 3) {
+      locked = true;
+      unlockBtn.disabled = true;
+      n1.disabled = true;
+      n2.disabled = true;
+      n3.disabled = true;
+      error.textContent = "輸入錯誤次數過多。請重新整理頁面後再試。";
+    } else {
+      error.textContent = `通行碼錯誤。剩餘 ${3 - failCount} 次機會。`;
+    }
     return;
   }
 
   lock.classList.add("hidden");
   story.classList.remove("hidden");
+  page = 0;
   showPage();
 };
-
-let page = 0;
-let line = 0;
-let typing = false;
 
 async function typeText(target, text) {
   typing = true;
   target.textContent = "";
+
   for (const ch of text) {
     target.textContent += ch;
+    if (ch.trim()) playTypeSound();
     await new Promise(r => setTimeout(r, 28));
   }
+
   typing = false;
 }
 
 function showPage() {
   content.innerHTML = "";
-  pageLabel.textContent = `PAGE ${page + 1} / ${pages.length}`;
+  story.scrollTop = 0;
   line = 0;
+  nextBtn.classList.remove("hidden");
+  restartBtn.classList.add("hidden");
   nextLine();
 }
 
@@ -147,21 +199,22 @@ async function nextLine() {
 
   if (line >= current.lines.length) {
     page++;
+
     if (page >= pages.length) {
-      nextBtn.textContent = "END";
-      nextBtn.disabled = true;
+      nextBtn.classList.add("hidden");
+      restartBtn.classList.remove("hidden");
       return;
     }
+
     showPage();
     return;
   }
 
   if (current.type === "chat") {
-    const [speaker, text] = current.lines[line++];
+    const [side, text] = current.lines[line++];
     const bubble = document.createElement("div");
-    const side = speaker.endsWith("B") ? "right" : "left";
-    bubble.className = `bubble ${side}`;
-    bubble.innerHTML = `<span>${speaker}</span><p></p>`;
+    bubble.className = `bubble ${side === "right" ? "right" : "left"}`;
+    bubble.innerHTML = "<p></p>";
     content.appendChild(bubble);
     await typeText(bubble.querySelector("p"), `「${text}」`);
   } else {
@@ -171,7 +224,15 @@ async function nextLine() {
     await typeText(p, current.lines[line++]);
   }
 
-  content.scrollTop = content.scrollHeight;
+  story.scrollTop = story.scrollHeight;
 }
 
-nextBtn.onclick = nextLine;
+nextBtn.onclick = () => {
+  initAudio();
+  nextLine();
+};
+
+restartBtn.onclick = () => {
+  page = 0;
+  showPage();
+};
