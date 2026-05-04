@@ -265,7 +265,14 @@ async function addNextLine(){
 }
 
 function showEnd(){
-  document.body.insertAdjacentHTML("beforeend",'<div class="dim-overlay"></div>');
+  
+const existing = document.querySelector(".dim-overlay");
+if(existing) existing.remove();
+const overlay = document.createElement("div");
+overlay.className = "dim-overlay";
+document.body.appendChild(overlay);
+setTimeout(()=>overlay.remove(),2000);
+
   playDing();
 
   content.innerHTML = `
