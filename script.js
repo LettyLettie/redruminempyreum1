@@ -143,10 +143,11 @@ unlockBtn.addEventListener("click", async () => {
     setTimeout(() => lock.querySelector(".lock-panel").classList.remove("shake"), 330);
 
     if (failed >= 3) {
-      error.textContent = "通行已鎖定。請重新整理頁面。";
+      error.textContent = "密碼錯誤";
       unlockBtn.disabled = true;
+      alert("仔細想想再輸入吧");
     } else {
-      error.textContent = `通行碼錯誤。剩餘嘗試：${3 - failed}`;
+      error.textContent = "密碼錯誤";
     }
     return;
   }
