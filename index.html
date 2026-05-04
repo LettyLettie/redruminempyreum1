@@ -1,30 +1,41 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARG</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variant Archive</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-noise"></div>
 
-<div id="lock" class="panel center">
-  <h1>Variant Archive</h1>
-  <p class="hint">M/D-D</p>
-  <div class="code">
-    <select id="n1"></select>
-    <select id="n2"></select>
-    <select id="n3"></select>
-  </div>
-  <button id="unlock">確認</button>
-  <p id="err"></p>
-</div>
+  <main id="lock" class="lock-shell">
+    <section class="lock-panel">
+      <div class="crest">✦</div>
+      <h1>Variant Archive</h1>
+      <p class="subtitle">Restricted Record</p>
+      <p class="hint">M/D-D</p>
 
-<div id="story" class="hidden panel">
-  <div id="box"></div>
-  <button id="next">▼</button>
-</div>
+      <div class="code-row" aria-label="passcode">
+        <select id="n1"></select>
+        <select id="n2"></select>
+        <select id="n3"></select>
+      </div>
 
-<script src="script.js"></script>
+      <button id="unlockBtn" class="main-btn">確認</button>
+      <p id="error" class="error"></p>
+    </section>
+  </main>
+
+  <main id="story" class="story-shell hidden">
+    <section class="story-panel">
+      <div id="content" class="content"></div>
+      <div class="controls">
+        <button id="nextBtn" class="next-btn" aria-label="next">▼</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
