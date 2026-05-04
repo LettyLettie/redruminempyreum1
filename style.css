@@ -147,7 +147,7 @@ button{
   cursor:pointer;
 }
 
-.main-btn:hover,.next-btn:hover,.restart-btn:hover{
+.main-btn:hover,.nav-btn:hover,.restart-btn:hover{
   background:#2a3446;
 }
 
@@ -247,11 +247,15 @@ button{
 
 .controls{
   position:absolute;
+  left:22px;
   right:22px;
   bottom:18px;
+  display:flex;
+  justify-content:space-between;
+  pointer-events:none;
 }
 
-.next-btn{
+.nav-btn{
   width:54px;
   height:46px;
   border-radius:999px;
@@ -261,6 +265,7 @@ button{
   font-size:22px;
   cursor:pointer;
   box-shadow:0 8px 18px rgba(0,0,0,.28);
+  pointer-events:auto;
 }
 
 .restart-wrap{
@@ -284,6 +289,40 @@ button{
   padding:12px 34px;
   cursor:pointer;
   font-size:15px;
+}
+
+
+.end-card{
+  width:min(560px,92%);
+  padding:42px 30px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.04),transparent),
+    rgba(16,22,32,.94);
+  border:1px solid var(--gold);
+  box-shadow:0 18px 42px rgba(0,0,0,.42);
+  text-align:center;
+  line-height:1.9;
+}
+
+.end-main-title{
+  margin:0 0 20px;
+  color:#b83a3a;
+  font-weight:800;
+  font-size:30px;
+  letter-spacing:.08em;
+}
+
+.end-info{
+  margin:0;
+  font-size:17px;
+  letter-spacing:.035em;
+}
+
+.end-date{
+  margin:26px 0 0;
+  font-size:19px;
+  color:var(--gold2);
+  letter-spacing:.08em;
 }
 
 @media(max-width:640px){

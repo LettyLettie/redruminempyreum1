@@ -83,12 +83,14 @@ const lock = document.getElementById("lock");
 const story = document.getElementById("story");
 const content = document.getElementById("content");
 const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
 const unlockBtn = document.getElementById("unlockBtn");
 const error = document.getElementById("error");
 
 let failed = 0;
 let pageIndex = 0;
 let lineIndex = 0;
+let historyStack = [];
 let typing = false;
 let skipTyping = false;
 let currentFullText = "";
@@ -160,9 +162,13 @@ unlockBtn.addEventListener("click", async () => {
 function startStory(){
   pageIndex = 0;
   lineIndex = 0;
+  historyStack = [];
   content.innerHTML = "";
   nextBtn.textContent = "▼";
   nextBtn.disabled = false;
+  nextBtn.style.opacity = "1";
+  prevBtn.disabled = true;
+  prevBtn.style.opacity = ".35";
   addNextLine();
 }
 
@@ -222,29 +228,55 @@ async function addNextLine(){
     if (pageIndex >= pages.length) return showEnd();
   }
 
+  historyStack.push({ pageIndex, lineIndex, html: content.innerHTML });
   const { element, text } = makeLine(pages[pageIndex]);
+  prevBtn.disabled = historyStack.length <= 1;
+  prevBtn.style.opacity = historyStack.length <= 1 ? ".35" : "1";
   await typeText(element, text);
 }
 
 function showEnd(){
+  historyStack.push({ pageIndex, lineIndex, html: content.innerHTML });
   content.innerHTML = `
     <div class="restart-wrap">
-      <div>
-        <div class="end-title">END</div>
-        <button class="restart-btn" id="restartBtn">回到第一頁</button>
+      <div class="end-card">
+        <h2 class="end-main-title">穹頂皓天謀殺案</h2>
+        <p class="end-info">FF14玩家店｜α Sco｜ARG×放置RP活動<br>
+        店址：ELE-Typhon Empyreum 28-47</p>
+        <p class="end-date">2026/07/04-05 與你相見</p>
       </div>
     </div>
   `;
   nextBtn.disabled = true;
   nextBtn.style.opacity = ".35";
-  document.getElementById("restartBtn").onclick = () => {
-    pageIndex = 0;
-    lineIndex = 0;
-    content.innerHTML = "";
-    nextBtn.disabled = false;
-    nextBtn.style.opacity = "1";
-    addNextLine();
-  };
+  prevBtn.disabled = false;
+  prevBtn.style.opacity = "1";
+}
+
+function goPrevious(){
+  if (typing) {
+    skipTyping = true;
+    if (currentElement) currentElement.textContent = currentFullText;
+    return;
+  }
+
+  if (historyStack.length <= 1) {
+    prevBtn.disabled = true;
+    prevBtn.style.opacity = ".35";
+    return;
+  }
+
+  historyStack.pop();
+  const previous = historyStack[historyStack.length - 1];
+  pageIndex = previous.pageIndex;
+  lineIndex = previous.lineIndex;
+  content.innerHTML = previous.html;
+
+  nextBtn.disabled = false;
+  nextBtn.style.opacity = "1";
+  prevBtn.disabled = historyStack.length <= 1;
+  prevBtn.style.opacity = historyStack.length <= 1 ? ".35" : "1";
 }
 
 nextBtn.addEventListener("click", addNextLine);
+prevBtn.addEventListener("click", goPrevious);
