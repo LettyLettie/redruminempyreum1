@@ -103,14 +103,17 @@ for (const select of document.querySelectorAll("select")) {
   }
 }
 
+let audioCtx;
 function clickSound(){
   try{
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if(!audioCtx){
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
-    osc.type = "square";
-    osc.frequency.value = 880 + Math.random() * 120;
-    gain.gain.value = 0.018;
+    osc.type = "triangle";
+    osc.frequency.value = 420 + Math.random() * 40;
+    gain.gain.value = 0.01;
     gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.035);
     osc.connect(gain);
     gain.connect(audioCtx.destination);
@@ -177,7 +180,7 @@ async function typeText(element, text){
     element.textContent += char;
     if (char.trim()) clickSound();
     content.scrollTop = content.scrollHeight;
-    await new Promise(resolve => setTimeout(resolve, 24));
+    await new Promise(resolve => setTimeout(resolve, 40));
   }
 
   typing = false;
