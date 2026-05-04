@@ -1,3 +1,4 @@
+
 let fail=0;
 
 for(let s of document.querySelectorAll("select")){
@@ -28,7 +29,15 @@ unlock.onclick=async()=>{
 };
 
 let pages=[
-["你想起一些許久之前沒有留意到的事。"]
+["你想起一些許久之前沒有留意到的事。",
+"身為冒險者的你遊走異邦...",
+"當然，你也聽過許多傳聞..."],
+
+["你聽說過前陣子伊修加德發生的事嗎？",
+"你已經去過了嗎？",
+"我自己還沒去過..."],
+
+["這種怪事你也沒有少聽過..."]
 ];
 
 let p=0,l=0,typing=false,full=false;
