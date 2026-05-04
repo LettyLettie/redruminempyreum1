@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redacted Inquiry</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main id="lock" class="panel">
+    <h1>Variant Archive / Redacted Inquiry</h1>
+    <p class="hint">請輸入三位通行碼。</p>
+
+    <div class="code-row">
+      <select id="n1" aria-label="第一格密碼"></select>
+      <select id="n2" aria-label="第二格密碼"></select>
+      <select id="n3" aria-label="第三格密碼"></select>
+    </div>
+
+    <button id="unlockBtn">確認</button>
+    <p id="error" role="status"></p>
+  </main>
+
+  <main id="story" class="panel hidden">
+    <div id="pageLabel"></div>
+    <div id="content"></div>
+    <button id="nextBtn">繼續</button>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
