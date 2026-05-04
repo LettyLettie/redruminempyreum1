@@ -335,3 +335,12 @@ button{
   .story-line,.chat-line{font-size:16px}
   .chat-line{max-width:88%}
 }
+
+
+.end-small{
+  margin:4px 0 0;
+  font-size:15px;
+  color:var(--gold2);
+  letter-spacing:.06em;
+  line-height:1.8;
+}

@@ -90,7 +90,7 @@ const error = document.getElementById("error");
 let failed = 0;
 let pageIndex = 0;
 let lineIndex = 0;
-let historyStack = [];
+let stateHistory = [];
 let typing = false;
 let skipTyping = false;
 let currentFullText = "";
@@ -162,7 +162,7 @@ unlockBtn.addEventListener("click", async () => {
 function startStory(){
   pageIndex = 0;
   lineIndex = 0;
-  historyStack = [];
+  stateHistory = [];
   content.innerHTML = "";
   nextBtn.textContent = "▼";
   nextBtn.disabled = false;
@@ -210,6 +210,21 @@ function makeLine(page){
   return { element: el, text: item };
 }
 
+
+function saveState(){
+  stateHistory.push({
+    pageIndex,
+    lineIndex,
+    html: content.innerHTML
+  });
+  updatePrevButton();
+}
+
+function updatePrevButton(){
+  prevBtn.disabled = stateHistory.length <= 1;
+  prevBtn.style.opacity = stateHistory.length <= 1 ? ".35" : "1";
+}
+
 async function addNextLine(){
   if (typing) {
     skipTyping = true;
@@ -228,27 +243,28 @@ async function addNextLine(){
     if (pageIndex >= pages.length) return showEnd();
   }
 
-  historyStack.push({ pageIndex, lineIndex, html: content.innerHTML });
   const { element, text } = makeLine(pages[pageIndex]);
-  prevBtn.disabled = historyStack.length <= 1;
-  prevBtn.style.opacity = historyStack.length <= 1 ? ".35" : "1";
   await typeText(element, text);
+  saveState();
 }
 
 function showEnd(){
-  historyStack.push({ pageIndex, lineIndex, html: content.innerHTML });
   content.innerHTML = `
     <div class="restart-wrap">
       <div class="end-card">
         <h2 class="end-main-title">穹頂皓天謀殺案</h2>
         <p class="end-info">FF14玩家店｜α Sco｜ARG×放置RP活動<br>
         店址：ELE-Typhon Empyreum 28-47</p>
-        <p class="end-date">2026/07/04-05 與你相見</p>
+        <p class="end-small">2026/6/1起 新線索發放<br>
+        2026/07/04-05 與你相見</p>
       </div>
     </div>
   `;
+  pageIndex = pages.length;
+  lineIndex = 0;
   nextBtn.disabled = true;
   nextBtn.style.opacity = ".35";
+  saveState();
   prevBtn.disabled = false;
   prevBtn.style.opacity = "1";
 }
@@ -260,22 +276,21 @@ function goPrevious(){
     return;
   }
 
-  if (historyStack.length <= 1) {
-    prevBtn.disabled = true;
-    prevBtn.style.opacity = ".35";
+  if (stateHistory.length <= 1) {
+    updatePrevButton();
     return;
   }
 
-  historyStack.pop();
-  const previous = historyStack[historyStack.length - 1];
+  stateHistory.pop();
+  const previous = stateHistory[stateHistory.length - 1];
+
   pageIndex = previous.pageIndex;
   lineIndex = previous.lineIndex;
   content.innerHTML = previous.html;
 
   nextBtn.disabled = false;
   nextBtn.style.opacity = "1";
-  prevBtn.disabled = historyStack.length <= 1;
-  prevBtn.style.opacity = historyStack.length <= 1 ? ".35" : "1";
+  updatePrevButton();
 }
 
 nextBtn.addEventListener("click", addNextLine);
