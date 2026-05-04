@@ -1,32 +1,30 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redacted Inquiry</title>
-  <link rel="stylesheet" href="/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARG</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main id="lock" class="lock-panel">
-    <h1>Redacted Inquiry</h1>
-    <p class="hint">請輸入三位通行碼。</p>
 
-    <div class="code-row">
-      <select id="n1" aria-label="第一格密碼"></select>
-      <select id="n2" aria-label="第二格密碼"></select>
-      <select id="n3" aria-label="第三格密碼"></select>
-    </div>
+<div id="lock" class="center">
+  <h2>M/D-D</h2>
+  <div class="code">
+    <select id="n1"></select>
+    <select id="n2"></select>
+    <select id="n3"></select>
+  </div>
+  <button id="unlock">確認</button>
+  <p id="err"></p>
+</div>
 
-    <button id="unlockBtn" class="confirm-btn">確認</button>
-    <p id="error" role="status"></p>
-  </main>
+<div id="story" class="hidden">
+  <div id="box"></div>
+  <button id="next">▼</button>
+</div>
 
-  <main id="story" class="story-panel hidden">
-    <div id="content"></div>
-    <button id="nextBtn" class="next-btn" aria-label="繼續">▼</button>
-    <button id="restartBtn" class="restart-btn hidden">回到第一頁</button>
-  </main>
-
-  <script src="/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
