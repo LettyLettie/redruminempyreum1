@@ -255,18 +255,23 @@ function showEnd(){
         <h2 class="end-main-title">穹頂皓天謀殺案</h2>
         <p class="end-info">FF14玩家店｜α Sco｜ARG×放置RP活動<br>
         店址：ELE-Typhon Empyreum 28-47</p>
+
         <p class="end-small">2026/6/1起 新線索發放<br>
         2026/07/04-05 與你相見</p>
+
+        <button class="restart-btn" id="restartBtn">回到開頭</button>
       </div>
     </div>
   `;
   pageIndex = pages.length;
-  lineIndex = 0;
   nextBtn.disabled = true;
   nextBtn.style.opacity = ".35";
-  saveState();
   prevBtn.disabled = false;
   prevBtn.style.opacity = "1";
+
+  document.getElementById("restartBtn").onclick = () => {
+    startStory();
+  };
 }
 
 function goPrevious(){

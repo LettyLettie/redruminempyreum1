@@ -283,6 +283,7 @@ button{
 }
 
 .restart-btn{
+  margin-top:28px;
   background:#202938;
   color:var(--text);
   border:1px solid var(--gold);
